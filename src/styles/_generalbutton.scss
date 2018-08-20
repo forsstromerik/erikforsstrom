@@ -1,0 +1,11 @@
+.general-button{
+  transition: 0.1s linear;
+  &:hover {
+    box-shadow: -2px 2px 10px rgb(155, 155, 155) !important;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
+import Main from './components/main';
 
 class App extends Component {
   render() {
     return (
-      <div style={{fontSize: "100px", width: "100%", padding: "40px", textAlign: "center"}}>
-        <div> Erik Forsström </div>
-      </div>
+      <Main />
     );
   }
 }
