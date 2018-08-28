@@ -1,4 +1,8 @@
 // Import files
 
-@import '_initialanimation';
-@import '_generalbutton';
+@import '_header';
+@import '_loader';
+@import '../components/Menu/_menu';
+@import '../components/Card/_card';
+@import '../components/Button/_generalbutton';
+@import '../components/Card/SocialButtons/_socialbuttons';
