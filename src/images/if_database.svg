@@ -1,0 +1,34 @@
+<svg width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="152" width="152" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle stroke="null" r="50" id="circle" fill="#4B5F83" cy="75" cx="75"/>
+  <rect y="94.985551" x="91.810646" width="10" id="right" height="3" fill="#22313F"/>
+  <rect y="94.808364" x="49.177186" width="10" id="left" height="3" fill="#22313F"/>
+  <g id="_x30_2_1_">
+   <rect y="71.808364" x="45.177186" width="60" id="line" height="3" fill="#E6E6E6"/>
+   <path id="bg_1_" fill="#FFFFFF" d="m106.177186,94.808364l-62,0c-2.2,0 -4,-1.8 -4,-4l0,-12c0,-2.2 1.8,-4 4,-4l62,0c2.2,0 4,1.8 4,4l0,12c0,2.2 -1.8,4 -4,4z"/>
+   <circle r="3" id="green_1_" fill="#26A65B" cy="84.808364" cx="102.077186"/>
+   <circle r="3" id="red_1_" fill="#CF000F" cy="84.808364" cx="93.077186"/>
+   <g id="lines_1_">
+    <rect y="79.808364" x="45.177186" width="3" id="line_6_" height="10" fill="#E6E6E6"/>
+    <rect y="79.808364" x="51.177186" width="3" id="line_5_" height="10" fill="#E6E6E6"/>
+    <rect y="79.808364" x="57.177186" width="3" id="line_4_" height="10" fill="#E6E6E6"/>
+   </g>
+  </g>
+  <g id="_x30_1">
+   <path id="bg" fill="#FFFFFF" d="m106.177186,71.808364l-62,0c-2.2,0 -4,-1.8 -4,-4l0,-12c0,-2.2 1.8,-4 4,-4l62,0c2.2,0 4,1.8 4,4l0,12c0,2.2 -1.8,4 -4,4z"/>
+   <circle r="3" id="green" fill="#26A65B" cy="61.808364" cx="102.077186"/>
+   <circle r="3" id="red" fill="#CF000F" cy="61.808364" cx="93.077186"/>
+   <g id="lines">
+    <rect y="56.808364" x="45.177186" width="3" id="line_3_" height="10" fill="#E6E6E6"/>
+    <rect y="56.808364" x="51.177186" width="3" id="line_2_" height="10" fill="#E6E6E6"/>
+    <rect y="56.808364" x="57.177186" width="3" id="line_1_" height="10" fill="#E6E6E6"/>
+   </g>
+  </g>
+ </g>
+</svg>

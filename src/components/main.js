@@ -3,6 +3,9 @@ import Menu from './Menu/menu';
 import Card from './Card/card';
 import ResumeButton from './Button/resumebutton';
 import ShortDescription from './shortdescription';
+import Skills from './Skills/skills';
+import Timeline from './Timeline/timeline';
+
 import { createClient } from 'contentful';
 import { parser } from '../helpers/parser';
 
@@ -53,6 +56,8 @@ class Main extends Component {
           text={shortDescription} 
           loading={loading}
         />
+        <Skills />
+        <Timeline />
       </div>
     );
   }

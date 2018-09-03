@@ -25,7 +25,7 @@ class Menu extends Component {
   handleScroll = () => {
     const { atTop } = this.state;
     const position = document.documentElement.scrollTop;
-    if(position > 0 && atTop === true){
+    if(position > 20 && atTop === true){
       this.setState({ atTop: false });
     } else if (position === 0 && atTop === false){
       this.setState({ atTop: true });
@@ -39,7 +39,10 @@ class Menu extends Component {
       <div className={`menu${atTop ? "" : " scrolled-down"}`} ref={ref => this.menu = ref}>
         <ul>
           <li className="menu-button">About</li>
-          <li className="menu-button">Skills</li>
+          <li className="menu-button" onClick={() => {document.documentElement.scrollTo({
+              top: 1050,
+              behavior: "smooth"
+          })}}>Skills</li>
           <li className="menu-button">Portfolio</li>
           <li className="menu-button">Contact</li>
           <li className="menu-button">Other</li>

@@ -19,6 +19,7 @@ class ResumeButton extends Component {
     return (
       <a 
         href={url} 
+        target="_blank"
         className="general-button" 
         ref={ref => this.button = ref}
       >

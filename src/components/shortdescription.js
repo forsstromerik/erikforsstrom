@@ -4,7 +4,6 @@ import { TimelineMax } from 'gsap';
 const styles = {
   padding: '40px 12%',
   top: '700px',
-  position: 'absolute',
   lineHeight: '1.4rem'
 
 }

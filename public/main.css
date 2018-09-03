@@ -170,7 +170,7 @@ const styles = {
   display: flex;
   justify-content: center;
   text-decoration: none;
-  margin: 150px auto; }
+  margin: 150px auto 0 auto; }
   .general-button button {
     background: none;
     border: none;
@@ -178,14 +178,91 @@ const styles = {
     height: 100%;
     transition: box-shadow 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     padding: 0; }
+    .general-button button:focus {
+      outline: 0; }
     .general-button button:hover {
       box-shadow: -2px 2px 10px #9b9b9b !important;
       cursor: pointer; }
-  .general-button:focus {
-    outline: 0; }
   .general-button span {
     font-weight: 500;
     font-size: 1rem; }
+
+.skills {
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .skills h2 {
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e8676b;
+    width: 130px;
+    text-align: center; }
+  .skills div {
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    color: #1d2949;
+    font-weight: 700;
+    margin-top: -60px; }
+    .skills div:nth-child(3n + 1) {
+      align-self: flex-start; }
+      .skills div:nth-child(3n + 1) span {
+        position: absolute;
+        top: calc(50% + -0.5rem);
+        left: 100%;
+        width: 300px;
+        text-align: start; }
+    .skills div:nth-child(3n + 2) {
+      align-self: center; }
+      .skills div:nth-child(3n + 2) span {
+        position: absolute;
+        top: calc(50% + -0.5rem);
+        left: 100%;
+        width: 300px;
+        text-align: start; }
+    .skills div:nth-child(3n + 3) {
+      align-self: flex-end; }
+      .skills div:nth-child(3n + 3) span {
+        position: absolute;
+        top: calc(50% + -0.5rem);
+        left: 100%;
+        width: 300px;
+        text-align: start; }
+
+.timeline-holder {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+  .timeline-holder h2 {
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8676b;
+    width: 160px;
+    text-align: center;
+    height: 2rem; }
+  .timeline-holder .timeline {
+    width: 10px;
+    height: 1000px;
+    background-color: #0e4970; }
+    .timeline-holder .timeline::before {
+      content: '';
+      position: relative;
+      border-color: #0e4970;
+      border-style: solid;
+      border-width: 10px 0 0 10px;
+      height: 30px;
+      width: 30px;
+      top: 10px;
+      left: -15px;
+      margin-top: -1em;
+      transform: rotate(45deg);
+      display: inline-block;
+      border-radius: 10px;
+      border-top-left-radius: 10px; }
 
 .buttons-row {
   position: absolute;
