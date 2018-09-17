@@ -22,7 +22,10 @@ class Skills extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', this.checkIfInView);
+  }
 
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.checkIfInView);
   }
 
   checkIfInView = () => {
@@ -39,9 +42,6 @@ class Skills extends Component {
     if(aPos < limit && this.a.style.opacity === '0'){
       this.animate(this.a, 'left', A);
     }
-    // } if (aPos > limit && this.a.style.opacity === '1') {
-    //   this.animate(this.a, 'reverse', A);
-    // }
     if(bPos < limit && this.b.style.opacity === '0'){
       this.animate(this.b, 'top', B);
     } 
@@ -87,54 +87,54 @@ class Skills extends Component {
 
   setTimeline = (obj, x, y, timeLine, reverse = false) => {
     if(!reverse){
-      console.log("not reverse");
       timeLine
         .set(obj, { x: x, y: y }) 
         .to(obj, 0.7, { x: 0, y: 0, autoAlpha: 1, ease: Power1.easeOut })
     } else {
-      console.log("reverse");
       timeLine.reverse();
     }
   } 
   
   render() {
-    return (
+    const { language } = this.props;
+
+    return [
+      <h2 id="skills">{language === "eng" ? "Skills" : "Kompetens"}</h2>,      
       <div className="skills">
-        <h2>Skills</h2>
-        <div ref={ref => this.a = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.a = ref} style={{ opacity: 0 }}>
           <img src={imgJavascript} />
           <span>Javascript</span>
         </div>
-        <div ref={ref => this.b = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.b = ref} style={{ opacity: 0 }}>
           <img src={imgReact} />
           <span>React</span>
         </div>
-        <div ref={ref => this.c = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.c = ref} style={{ opacity: 0 }}>
           <img src={imgCss} />
           <span>CSS</span>
         </div>
-        <div ref={ref => this.d = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.d = ref} style={{ opacity: 0 }}>
           <img src={imgHtml} />
           <span>HTML</span>
         </div>
-        <div ref={ref => this.e = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.e = ref} style={{ opacity: 0 }}>
           <img src={imgGithub} />
           <span>Version Control</span>
         </div>
-        <div ref={ref => this.f = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.f = ref} style={{ opacity: 0 }}>
           <img src={imgDatabase} />
           <span>Database management</span>
         </div>
-        <div ref={ref => this.g = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.g = ref} style={{ opacity: 0 }}>
           <img src={imgLinux} />
           <span>Unix based systems</span>
         </div>
-        <div ref={ref => this.h = ref} style={{ opacity: 0 }}>
+        <div className="skill-item" ref={ref => this.h = ref} style={{ opacity: 0 }}>
           <img src={imgVscode} />
           <span>VS Code</span>
         </div>
       </div>
-    );
+    ]
   }
 }
 

@@ -1,39 +1,42 @@
 const KEYS = {
-  PROFILE_IMAGE: 'profileImage',
-  HEADER_IMAGE: 'headerImage',
-  SHORT_DESCRIPTION: 'shortDescription',
-  RESUME: 'resume'
+  PROFILE_IMAGE: 'businessCard',
+  HEADER_IMAGE: 'header',
+  SHORT_DESCRIPTION: 'description',
+  RESUME: 'resume',
+  TIMELINE_ELEMENT: 'timelineElement'
 }
 
-export const parser = obj => {
-  if(obj[KEYS.PROFILE_IMAGE]){
-    return ({ 
-      cardInfo: {
-        age: obj.age,
-        email: obj.email,
-        name: obj.name,
-        occupation: obj.occupation,
-        occupation2: obj.occupation2,
-        profileImageURL: obj.profileImage.fields.file.url
+export const parser = (res, data) => {
+  res.items.forEach(obj => {
+    if(obj.sys.contentType.sys.id === KEYS.PROFILE_IMAGE){
+      data["cardInfo"] = {
+        age: obj.fields.age,
+        email: obj.fields.email,
+        name: obj.fields.name,
+        occupation: obj.fields.occupation,
+        occupation2: obj.fields.occupation2,
+        profileImageURL: obj.fields.profileImage.fields.file.url
       }
-    });
-  } 
-  else if (obj[KEYS.HEADER_IMAGE]) {
-    return ({
-        headerImageURL: obj.headerImage.fields.file.url
-    });
-  }
-  else if (obj[KEYS.SHORT_DESCRIPTION]){
-    return ({
-      shortDescription: [...obj.shortDescription.split('\n')]
-    });
-  }
-  else if (obj[KEYS.RESUME]){
-    return({
-      resumeURL: `https:${obj.resume.fields.file.url}`
-    });
-  }
-  else {
-    return null;
-  }
+    }
+    else if (obj.sys.contentType.sys.id === KEYS.HEADER_IMAGE) {
+      data["headerImageURL"] = obj.fields.headerImage.fields.file.url
+    }
+    else if (obj.sys.contentType.sys.id === KEYS.SHORT_DESCRIPTION){
+      data["shortDescription"] = [...obj.fields.shortDescription.split('\n')]
+    }
+    else if (obj.sys.contentType.sys.id === KEYS.RESUME){
+      data["resumeURL"] = `https:${obj.fields.resume.fields.file.url}`
+    }
+    else if (obj.sys.contentType.sys.id === KEYS.TIMELINE_ELEMENT){
+      data["elements"].push(
+        {
+          imageURL: obj.fields.image.fields.file.url,
+          year: obj.fields.year,
+          title: obj.fields.title,
+          description: obj.fields.description
+        }
+      );
+    }
+  })
+  return data;
 }

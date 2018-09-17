@@ -5,6 +5,8 @@ import ResumeButton from './Button/resumebutton';
 import ShortDescription from './shortdescription';
 import Skills from './Skills/skills';
 import Timeline from './Timeline/timeline';
+import Contact from './Contact/contact';
+import Footer from './Footer/footer';
 
 import { createClient } from 'contentful';
 import { parser } from '../helpers/parser';
@@ -16,6 +18,27 @@ class Main extends Component {
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_ACCESSTOKEN
     }),
+    data: {
+      cardInfo: {
+        age: '',
+        email: '',
+        name: '',
+        occupation: '',
+        occupation2: '',
+        profileImageURL: ''
+      },
+      headerImageURL: '',
+      shortDescription: [],
+      resumeURL: '',
+      elements: [
+        // {
+        //   imageURL: '',
+        //   year: '',
+        //   title: '',
+        //   description: ''
+        // }
+      ]
+    },
     loading: true,
     language: 'eng'
   }
@@ -26,38 +49,50 @@ class Main extends Component {
     } else {
       this.setState({ language: 'swe' });
     }
+    let { data } = this.state;    
+    this.state.client.getEntries({ locale: string === "eng" ? "en-US" : "sv"}).then(res => {
+      data = parser(res, data)
+    }).then(() => this.setState({ data, loading: false }));
   }
 
   componentDidMount() {
+    let { data } = this.state;
     this.state.client.getEntries().then(res => {
-      res.items.forEach(item => {
-        this.setState(parser(item.fields)); // GÖR OBJEKT ISTÄLLET
-      })
-    }).then(() => this.setState({ loading: false }))
+      data = parser(res, data);
+    }).then(() => this.setState({ data, loading: false }));
   }
-
   render(){
-    const { cardInfo, loading, shortDescription, resumeURL, headerImageURL, language } = this.state;
+    const { data, loading, language } = this.state;
     return (
       <div>
         <div className="header">
-          <img src={headerImageURL} />
+          <img src={data.headerImageURL} />
         </div>
         <Menu  
           setLanguage={this.setLanguage}
           language={language}
         />
         <Card 
-          cardInfo={cardInfo} 
+          cardInfo={data.cardInfo} 
           loading={loading}  
+          language={language}
         />
-        {!loading && <ResumeButton url={resumeURL} />}
+        {!loading && <ResumeButton url={data.resumeURL} />}
         <ShortDescription 
-          text={shortDescription} 
+          text={data.shortDescription} 
           loading={loading}
         />
-        <Skills />
-        <Timeline />
+        <Skills 
+          language={language}
+        />
+        <Timeline 
+          language={language}
+          elements={data.elements}
+        />
+        <Contact 
+          language={language}
+        />
+        <Footer />
       </div>
     );
   }

@@ -8,6 +8,7 @@
   justify-content: center;
   text-decoration: none;
   margin: 150px auto 0 auto;
+  background-color: #eee;
   
   button {
     background: none;
@@ -30,5 +31,21 @@
   span {
     font-weight: 500;
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .general-button {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+}
+
+@media screen and (max-width: 600px) {
+  .general-button {
+    margin-top: 700px;
   }
 }

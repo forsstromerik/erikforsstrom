@@ -21,18 +21,19 @@ class Card extends Component {
   }
 
   render() {
-    const { cardInfo, loading} = this.props;
+    const { cardInfo, loading, language} = this.props;
     if(!loading){
       return (
         <div className="card" ref={ref => this.card = ref}>
           <div className="upper">
-            <img src={cardInfo.profileImageURL} height={'70%'} />,
+            <img src={cardInfo.profileImageURL} height={'70%'} />
             <Info
               age={cardInfo.age}
               email={cardInfo.email}
               name={cardInfo.name}
               occupation={cardInfo.occupation}
               occupation2={cardInfo.occupation2}
+              language={language}
               /> 
           </div>
           <SocialButtons />

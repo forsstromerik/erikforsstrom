@@ -31,3 +31,21 @@
   }
 
 }
+
+@media screen and (max-width: 1200px) {
+  .buttons-row {
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .buttons-row {
+    height: 55px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .buttons-row a {
+    margin: 0 20px;
+  }
+}

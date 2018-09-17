@@ -9,14 +9,14 @@ class Info extends Component {
 
   render() {
 
-    const { age, email, name, occupation, occupation2 } = this.props;    
+    const { age, email, name, occupation, occupation2, language } = this.props;    
     return (
       <div className="card-info">
-        <span><div>Name</div>{name}</span>
-        <span><div>Age</div>{age}</span>
-        <span><div>Email</div>{email}</span>
-        <span><div>Occupation</div>{occupation}</span>
-        <span><div>Other</div>{occupation2}</span>
+        <span><div>{language === "eng" ? "Name" : "Namn"}</div>{name}</span>
+        <span><div>{language === "eng" ? "Age" : "Ålder"}</div>{age}</span>
+        <span><div>{language === "eng" ? "Email" : "Email"}</div>{email}</span>
+        <span><div>{language === "eng" ? "Occupaction" : "Sysselsättning"}</div>{occupation}</span>
+        <span><div>{language === "eng" ? "Other" : "Annat"}</div>{occupation2}</span>
       </div>
     );
   }

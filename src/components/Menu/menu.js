@@ -32,20 +32,43 @@ class Menu extends Component {
     }
   }
 
+  scrollTo = elementID => {
+    const elem = document.getElementById(elementID);
+    if(!elem) return;
+    document.documentElement.scrollTo({ top: elem.offsetTop - 100, behavior: "smooth" })
+    
+  }
+
   render() {
     const { language } = this.props;
     const { atTop } = this.state;
     return (
       <div className={`menu${atTop ? "" : " scrolled-down"}`} ref={ref => this.menu = ref}>
         <ul>
-          <li className="menu-button">About</li>
-          <li className="menu-button" onClick={() => {document.documentElement.scrollTo({
-              top: 1050,
-              behavior: "smooth"
-          })}}>Skills</li>
-          <li className="menu-button">Portfolio</li>
-          <li className="menu-button">Contact</li>
-          <li className="menu-button">Other</li>
+          <li 
+            className="menu-button" 
+            onClick={() => this.scrollTo('root')}
+          >
+            {language === "eng" ? "About" : "Om"}
+          </li>
+          <li 
+            className="menu-button" 
+            onClick={() => this.scrollTo('skills')}
+          >
+            {language === "eng" ? "Skills" : "Kompetens"}
+          </li>
+          <li 
+            className="menu-button"
+            onClick={() => this.scrollTo('timeline')}
+          >
+            {language === "eng" ? "Timeline" : "Tidslinje"}
+          </li>
+          <li 
+            className="menu-button"
+            onClick={() => this.scrollTo('contact')}
+          >
+            {language === "eng" ? "Contact" : "Kontakt"}            
+          </li>
         </ul>
         <ul>
           <li onClick={() => this.props.setLanguage('swe')}>
