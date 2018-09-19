@@ -14,17 +14,18 @@ class ResumeButton extends Component {
   }
 
   render() {
-    const { url } = this.props;
+    const { url, language } = this.props;
     
     return (
       <a 
         href={url} 
         target="_blank"
+        rel="noopener noreferrer"
         className="general-button" 
         ref={ref => this.button = ref}
       >
         <button>
-          <span>Download resumé</span>
+          <span>{language === "eng" ? "Download résumé" : "Ladda ned CV"}</span>
         </button>
       </a>
     );

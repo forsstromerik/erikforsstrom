@@ -3,12 +3,32 @@ const KEYS = {
   HEADER_IMAGE: 'header',
   SHORT_DESCRIPTION: 'description',
   RESUME: 'resume',
-  TIMELINE_ELEMENT: 'timelineElement'
+  TIMELINE_ELEMENT: 'timelineElement',
+  FOOTER: 'footer'
 }
 
-export const parser = (res, data) => {
+export const parser = (res) => {
+  let data = {
+    cardInfo: {
+      age: '',
+      email: '',
+      name: '',
+      occupation: '',
+      occupation2: '',
+      profileImageURL: ''
+    },
+    headerImageURL: '',
+    shortDescription: [],
+    resumeURL: '',
+    elements: [],
+    footer: {
+      quote: '',
+      info: ''
+    }
+  };
+
   res.items.forEach(obj => {
-    if(obj.sys.contentType.sys.id === KEYS.PROFILE_IMAGE){
+    if (obj.sys.contentType.sys.id === KEYS.PROFILE_IMAGE){
       data["cardInfo"] = {
         age: obj.fields.age,
         email: obj.fields.email,
@@ -33,10 +53,19 @@ export const parser = (res, data) => {
           imageURL: obj.fields.image.fields.file.url,
           year: obj.fields.year,
           title: obj.fields.title,
-          description: obj.fields.description
+          description: obj.fields.description,
+          order: obj.fields.order
         }
       );
     }
+    else if (obj.sys.contentType.sys.id === KEYS.FOOTER) {
+      data["footer"] = {
+        quote: obj.fields.quote,
+        info: obj.fields.info
+      }
+    }
   })
+  data["elements"].sort((a,b) =>  b.order - a.order);
+  
   return data;
 }

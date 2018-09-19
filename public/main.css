@@ -122,12 +122,13 @@ h2 {
 
 @media screen and (max-width: 900px) {
   .card {
-    padding-top: 75px; }
+    padding-top: 13vw; }
     .card .upper .card-info {
-      height: 200px;
+      height: 215px;
       left: 52%;
       width: 170px;
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      top: 22px; }
       .card .upper .card-info span {
         flex-direction: column; }
         .card .upper .card-info span div {
@@ -137,19 +138,21 @@ h2 {
 @media screen and (max-width: 600px) {
   .card {
     width: 80%;
-    padding-top: 550px; }
+    padding-top: 105vw;
+    top: 130px; }
     .card .upper .card-info {
-      bottom: -175px;
+      bottom: -55vw;
       margin: auto;
-      font-size: 1rem;
-      height: 300px;
+      font-size: 0.9rem;
+      height: 66vw;
       justify-content: space-evenly;
-      left: -30%;
-      right: 0; }
+      left: -15%;
+      right: 0;
+      width: 50vw; }
     .card .upper img {
       left: 0;
       right: 0;
-      width: 90%;
+      width: 82%;
       height: auto; } }
 
 .contact {
@@ -159,6 +162,7 @@ h2 {
   align-items: center; }
   .contact .contact-card {
     width: 60%;
+    max-width: 900px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -176,9 +180,14 @@ h2 {
       .contact .contact-card a:hover {
         background-color: #e8676b; }
 
+@media screen and (max-width: 600px) {
+  .contact .contact-card {
+    width: 70%; } }
+
 .footer {
-  width: 100%;
-  height: 100px;
+  width: 90%;
+  padding: 10px 5%;
+  height: 140px;
   margin-top: 100px;
   background-color: #d7d7d7;
   display: flex;
@@ -189,7 +198,15 @@ h2 {
   color: #555; }
   .footer cite {
     color: #999;
-    margin-top: 10px; }
+    margin-top: 5px; }
+  .footer p {
+    margin: 20px 0 0 0;
+    font-size: 0.6rem;
+    color: #999; }
+
+@media screen and (max-height: 600px) {
+  .footer {
+    margin-top: 50px; } }
 
 .menu {
   height: 60px;
@@ -239,6 +256,101 @@ h2 {
       transition: 0.5s;
       border-color: black; }
 
+.burger-button {
+  visibility: hidden;
+  height: 50px;
+  width: 60px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  transition: 0.5s;
+  background-color: #464b54;
+  border-radius: 3px; }
+  .burger-button:after {
+    content: "";
+    border: 2.5px solid black;
+    background-color: black;
+    border-top: unset;
+    border-bottom: unset;
+    position: absolute;
+    height: 25px;
+    transform: rotateZ(90deg) translateX(21px) translateY(-28px);
+    transition: 0.3s; }
+  .burger-button.open {
+    background-color: #737a88; }
+  .burger-button.open:after {
+    height: 29px;
+    transform: rotateZ(45deg) translateX(26px) translateY(-12px); }
+  .burger-button:before {
+    content: "";
+    border: 5px solid black;
+    width: 3px;
+    border-top: unset;
+    border-bottom: unset;
+    position: absolute;
+    height: 25px;
+    transform: rotateZ(90deg) translateX(9px) translateY(-24px);
+    transition: 0.3s; }
+  .burger-button.open:before {
+    width: 0;
+    border: 2.5px solid black;
+    transform: rotateZ(135deg) translateX(-12px) translateY(-26px); }
+
+.burger-menu {
+  visibility: hidden;
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  transition: 0.5s;
+  background: #616770;
+  background: linear-gradient(90deg, #616770 0%, #464b54 100%);
+  flex-direction: column;
+  transition: 0.4s;
+  transform: translateX(100%); }
+  .burger-menu.open {
+    transform: translateX(0);
+    box-shadow: 0 0 7px 0px #000; }
+  .burger-menu ul {
+    margin-top: 150px;
+    list-style: none;
+    color: white;
+    font-size: 1.4rem;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 20%; }
+    .burger-menu ul li {
+      border-bottom: 2px solid #e8676b; }
+  .burger-menu ul:nth-child(2) {
+    height: 100px;
+    margin-top: 30px;
+    flex-direction: row; }
+    .burger-menu ul:nth-child(2) li {
+      width: 45px;
+      margin: auto 10px;
+      border-bottom: unset; }
+      .burger-menu ul:nth-child(2) li:hover {
+        cursor: pointer; }
+      .burger-menu ul:nth-child(2) li img {
+        padding-bottom: 5px;
+        border-bottom: 4px solid rgba(0, 0, 0, 0); }
+        .burger-menu ul:nth-child(2) li img.active {
+          border-color: #e8676b; }
+
+@media screen and (max-width: 600px) {
+  .menu {
+    visibility: hidden; }
+  .burger-menu {
+    visibility: visible; }
+  .burger-button {
+    visibility: visible; } }
+
 .general-button {
   width: 250px;
   height: 70px;
@@ -271,23 +383,25 @@ h2 {
 
 @media screen and (max-width: 600px) {
   .general-button {
-    margin-top: 700px; } }
+    margin-top: 110vw; } }
 
 .skills {
-  width: 344px;
+  width: 580px;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between; }
   .skills .skill-item {
-    width: 150px;
-    min-width: 150px;
-    height: 150px;
-    min-height: 150px;
+    width: 250px;
+    min-width: 250px;
+    height: 250px;
+    min-height: 250px;
     border: 1px solid #b7b7b7;
     background-color: white;
-    padding: 10px 10px 30px 10px; }
+    padding: 10px 10px 30px 10px;
+    margin: 15px 0;
+    box-shadow: 0 0 7px 0px #888; }
     .skills .skill-item span {
       font-weight: 700;
       color: #464b54;
@@ -297,15 +411,39 @@ h2 {
       text-align: center;
       width: 100%;
       position: absolute; }
+    .skills .skill-item:hover {
+      border: 1px solid #e8676b; }
+    .skills .skill-item #needs-help {
+      width: 250px;
+      min-width: 250px;
+      height: 250px;
+      min-height: 250px; }
+
+@media screen and (max-width: 600px) {
+  .skills {
+    width: 96%;
+    max-width: 400px;
+    justify-content: space-around; }
+    .skills .skill-item {
+      min-width: 125px;
+      max-width: 150px;
+      min-height: 125px;
+      max-height: 150px;
+      margin: 8px 0; }
+      .skills .skill-item #needs-help {
+        min-width: 125px;
+        max-width: 150px;
+        min-height: 125px;
+        max-height: 150px; } }
 
 .timeline-holder {
-  width: 40%;
   display: flex;
   justify-content: flex-start;
-  padding: 0 30%; }
+  padding: 0 50%; }
   .timeline-holder .timeline {
     width: 2px;
-    background-color: #b7b7b7; }
+    background-color: #b7b7b7;
+    margin-left: -220px; }
     .timeline-holder .timeline::before {
       content: '';
       position: relative;
@@ -323,7 +461,7 @@ h2 {
       opacity: 0;
       margin-bottom: 60px;
       width: 400px;
-      height: 250px;
+      height: 260px;
       background-color: white;
       margin-left: 30px;
       box-shadow: 0 0 7px 0px #888; }
@@ -386,9 +524,9 @@ h2 {
       .timeline-holder .timeline .timeline-element .timeline-content {
         position: absolute;
         margin-top: 80px;
-        height: 130px;
-        padding: 20px;
-        width: 360px;
+        height: 152px;
+        padding: 14px;
+        width: 372px;
         font-size: 15px; }
         .timeline-holder .timeline .timeline-element .timeline-content a {
           text-decoration: none;
@@ -419,17 +557,26 @@ h2 {
 
 @media screen and (max-width: 600px) {
   .timeline-holder {
-    margin: auto;
-    padding: 0; }
-    .timeline-holder .timeline .timeline-element {
-      width: 300px; }
-      .timeline-holder .timeline .timeline-element .timeline-header {
-        height: 60px; }
-      .timeline-holder .timeline .timeline-element .timeline-content {
-        margin-top: 60px;
-        width: 280px;
-        padding: 10px;
-        height: 170px; } }
+    margin: auto; }
+    .timeline-holder .timeline {
+      margin-left: -140px; }
+      .timeline-holder .timeline .timeline-element {
+        width: 260px;
+        height: 300px;
+        margin-bottom: 30px; }
+        .timeline-holder .timeline .timeline-element .timeline-header {
+          height: 60px; }
+          .timeline-holder .timeline .timeline-element .timeline-header h3 {
+            font-size: 1rem; }
+          .timeline-holder .timeline .timeline-element .timeline-header .image-holder {
+            flex-basis: 25%; }
+            .timeline-holder .timeline .timeline-element .timeline-header .image-holder img {
+              width: 45%; }
+        .timeline-holder .timeline .timeline-element .timeline-content {
+          margin-top: 60px;
+          width: 240px;
+          padding: 10px;
+          height: 170px; } }
 
 .buttons-row {
   position: absolute;

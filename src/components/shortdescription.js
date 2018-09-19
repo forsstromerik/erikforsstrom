@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { TimelineMax } from 'gsap';
 
-const styles = {
-  padding: '40px 12%',
-  top: '700px',
-  lineHeight: '1.4rem'
-
-}
-
 class ShortDescription extends Component {
   
   setTimeline = () => {
@@ -25,20 +18,16 @@ class ShortDescription extends Component {
   }
 
   render() {
-    const { text, loading } = this.props;
-    if(!loading){
-      return (
-        <div 
-          className="short-description" 
-          style={styles}
-          ref={ref => this.text = ref}  
-        >
-          {text.map(section => <p>{section}</p>)}
-        </div>
-      );
-    } else {
-      return <div className="loader-container"><div className="loader"><div></div><div></div><div></div><div></div></div></div>
-    }
+    const { text } = this.props;
+    return (
+      <div 
+        className="short-description" 
+        style={{ padding: '40px 12%', top: '700px', lineHeight: '1.4rem'}}
+        ref={ref => this.text = ref}  
+      >
+        {text.map((section, i) => <p key={i}>{section}</p>)}
+      </div>
+    );
   }
 }
 

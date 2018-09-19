@@ -22,6 +22,7 @@
       left: 25px;
       border: 1px solid #6662;
     }
+
     .card-info {
       position: absolute;
       width: 400px;
@@ -32,6 +33,7 @@
       flex-direction: column;
       justify-content: space-evenly;
       top: 20px;
+
       span {
         display: flex;
         justify-content: flex-start;
@@ -49,10 +51,12 @@
 @media screen and (max-width: 1200px) {
   .card {
     width: 78%;
+
     .upper .card-info {
       left: 48%;
       width: 320px;
       margin-left: -15px;
+
       span {
         div {
           width: 130px;
@@ -65,15 +69,18 @@
 
 @media screen and (max-width: 900px) {
   .card {
-    padding-top: 75px;
+    padding-top: 13vw;
+
     .upper .card-info {
-      height: 200px;
+      height: 215px;
       left: 52%;
       width: 170px;
       font-size: 0.8rem;
+      top: 22px;
 
       span {
         flex-direction: column;
+
         div {
           width: 26%;
           min-width: 26%;
@@ -86,22 +93,25 @@
 @media screen and (max-width: 600px) {
   .card {
     width: 80%;
-    padding-top: 550px;
+    padding-top: 105vw;
+    top: 130px;
 
     .upper {
       .card-info {
-        bottom: -175px;
+        bottom: -55vw;
         margin: auto;
-        font-size: 1rem;
-        height: 300px;
+        font-size: 0.9rem;
+        height: 66vw;
         justify-content: space-evenly;
-        left: -30%;
+        left: -15%;
         right: 0;
+        width: 50vw;
       }
+      
       img {
         left: 0;
         right: 0;
-        width: 90%;
+        width: 82%;
         height: auto;
       }
     }

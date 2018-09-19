@@ -1,13 +1,13 @@
 .timeline-holder {
-  width: 40%;
   display: flex;
   justify-content: flex-start;
-  padding: 0 30%;
+  padding: 0 50%;
 
   .timeline {
     width: 2px;
     background-color: #b7b7b7;
-
+    margin-left: -220px;
+    
     &::before {
       content: '';
       position: relative;
@@ -24,17 +24,18 @@
     }
 
     .timeline-element {
+      opacity: 0;
+      margin-bottom: 60px;
+      width: 400px;
+      height: 260px;
+      background-color: white;
+      margin-left: 30px;
+      box-shadow: 0 0 7px 0px #888;
+      
       &.inview {
         animation: fadein 0.7s;
         opacity: 1;
       }
-      opacity: 0;
-      margin-bottom: 60px;
-      width: 400px;
-      height: 250px;
-      background-color: white;
-      margin-left: 30px;
-      box-shadow: 0 0 7px 0px #888;
 
       .timeline-header-dot {
         &.inview {
@@ -112,10 +113,11 @@
       .timeline-content {
         position: absolute;
         margin-top: 80px;
-        height: 130px;
-        padding: 20px;
-        width: 360px;
+        height: 152px;
+        padding: 14px;
+        width: 372px;
         font-size: 15px;
+
         a {
           text-decoration: none;
           color: #464b54;
@@ -158,28 +160,31 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-
-}
-
-@media screen and (max-width: 900px) {
-  
-}
-
 @media screen and (max-width: 600px) {
   .timeline-holder {
     margin: auto;
-    padding: 0;
 
     .timeline{
+      margin-left: -140px;
       .timeline-element {
-       width: 300px;
+       width: 260px;
+       height: 300px;
+       margin-bottom: 30px;
        .timeline-header {
          height: 60px;
+         h3 {
+           font-size: 1rem;
+         }
+         .image-holder {
+          flex-basis: 25%;
+          img {
+            width: 45%;
+          }
+        }
        }
        .timeline-content {
         margin-top: 60px;
-        width: 280px;
+        width: 240px;
         padding: 10px;
         height: 170px;
       }

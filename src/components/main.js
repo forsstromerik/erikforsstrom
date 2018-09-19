@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import Menu from './Menu/menu';
+import { createClient } from 'contentful';
+
 import Card from './Card/card';
+import Contact from './Contact/contact';
+import Footer from './Footer/footer';
+import Menu from './Menu/menu';
 import ResumeButton from './Button/resumebutton';
 import ShortDescription from './shortdescription';
 import Skills from './Skills/skills';
 import Timeline from './Timeline/timeline';
-import Contact from './Contact/contact';
-import Footer from './Footer/footer';
 
-import { createClient } from 'contentful';
 import { parser } from '../helpers/parser';
 
 class Main extends Component {
-
   state = {
     client: createClient({
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -30,43 +30,36 @@ class Main extends Component {
       headerImageURL: '',
       shortDescription: [],
       resumeURL: '',
-      elements: [
-        // {
-        //   imageURL: '',
-        //   year: '',
-        //   title: '',
-        //   description: ''
-        // }
-      ]
+      elements: [],
+      footer: {
+        quote: '',
+        info: ''
+      }
     },
     loading: true,
     language: 'eng'
   }
 
   setLanguage = string => {
-    if(string === 'eng'){
-      this.setState({ language: 'eng' });
-    } else {
-      this.setState({ language: 'swe' });
-    }
-    let { data } = this.state;    
+    let data;   
     this.state.client.getEntries({ locale: string === "eng" ? "en-US" : "sv"}).then(res => {
-      data = parser(res, data)
-    }).then(() => this.setState({ data, loading: false }));
+      data = parser(res)
+    }).then(() => this.setState({ data, loading: false, language: string === "eng" ? "eng" : "swe" }));
   }
 
   componentDidMount() {
-    let { data } = this.state;
+    let data;
     this.state.client.getEntries().then(res => {
-      data = parser(res, data);
+      data = parser(res);
     }).then(() => this.setState({ data, loading: false }));
   }
+  
   render(){
     const { data, loading, language } = this.state;
     return (
       <div>
         <div className="header">
-          <img src={data.headerImageURL} />
+          <img src={data.headerImageURL} alt="header" />
         </div>
         <Menu  
           setLanguage={this.setLanguage}
@@ -77,22 +70,36 @@ class Main extends Component {
           loading={loading}  
           language={language}
         />
-        {!loading && <ResumeButton url={data.resumeURL} />}
+        {!loading && [
+        <ResumeButton 
+          key={0}
+          language={language} 
+          url={data.resumeURL} 
+        />,
         <ShortDescription 
+          key={1}
           text={data.shortDescription} 
           loading={loading}
-        />
+        />,
         <Skills 
+          key={2}
           language={language}
-        />
+        />,
         <Timeline 
+          key={3}
           language={language}
           elements={data.elements}
-        />
+        />,
         <Contact 
+          key={4}
           language={language}
+        />,
+        <Footer 
+          key={5}
+          quote={data.footer.quote}
+          info={data.footer.info}
         />
-        <Footer />
+        ]}
       </div>
     );
   }

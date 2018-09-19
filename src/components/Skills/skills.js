@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import imgJavascript from '../../images/if_javascript.svg';
-import imgReact from '../../images/if_react.svg';
-import imgCss from '../../images/if_css.svg';
-import imgHtml from '../../images/if_html.svg';
-import imgGithub from '../../images/if_github.svg';
-import imgDatabase from '../../images/if_database.svg';
-import imgLinux from '../../images/if_linux.svg';
-import imgVscode from '../../images/if_vscode.svg';
+import IMGjavascript from '../../images/if_javascript.svg';
+import IMGreact from '../../images/if_react.svg';
+import IMGcss from '../../images/if_css.svg';
+import IMGhtml from '../../images/if_html.svg';
+import IMGgithub from '../../images/if_github.svg';
+import IMGdatabase from '../../images/if_database.svg';
+import IMGlinux from '../../images/if_linux.svg';
+import IMGvscode from '../../images/if_vscode.svg';
 import { TimelineMax, Power1 } from 'gsap';
 
 let A = new TimelineMax();
@@ -29,7 +29,7 @@ class Skills extends Component {
   }
 
   checkIfInView = () => {
-    const limit = document.documentElement.clientHeight;
+    const limit = document.documentElement.clientHeight + 150;
     const aPos = this.a.getBoundingClientRect().top + this.a.getBoundingClientRect().height;
     const bPos = this.b.getBoundingClientRect().top + this.b.getBoundingClientRect().height;
     const cPos = this.c.getBoundingClientRect().top + this.c.getBoundingClientRect().height;
@@ -82,6 +82,8 @@ class Skills extends Component {
       case 'reverse':
         this.setTimeline(obj, 0, 0, timeLine, true);
         break;
+      default:
+        return;
     }
   }
 
@@ -97,40 +99,39 @@ class Skills extends Component {
   
   render() {
     const { language } = this.props;
-
     return [
-      <h2 id="skills">{language === "eng" ? "Skills" : "Kompetens"}</h2>,      
-      <div className="skills">
+      <h2 key={0} id="skills">{language === "eng" ? "Skills" : "Kompetens"}</h2>,      
+      <div key={1} className="skills">
         <div className="skill-item" ref={ref => this.a = ref} style={{ opacity: 0 }}>
-          <img src={imgJavascript} />
+          <img src={IMGjavascript} alt="javascript" />
           <span>Javascript</span>
         </div>
         <div className="skill-item" ref={ref => this.b = ref} style={{ opacity: 0 }}>
-          <img src={imgReact} />
+          <img src={IMGreact} alt="react" />
           <span>React</span>
         </div>
         <div className="skill-item" ref={ref => this.c = ref} style={{ opacity: 0 }}>
-          <img src={imgCss} />
+          <img src={IMGcss} alt="css" />
           <span>CSS</span>
         </div>
         <div className="skill-item" ref={ref => this.d = ref} style={{ opacity: 0 }}>
-          <img src={imgHtml} />
+          <img src={IMGhtml} alt="html" />
           <span>HTML</span>
         </div>
         <div className="skill-item" ref={ref => this.e = ref} style={{ opacity: 0 }}>
-          <img src={imgGithub} />
+          <img src={IMGgithub} alt="github" />
           <span>Version Control</span>
         </div>
         <div className="skill-item" ref={ref => this.f = ref} style={{ opacity: 0 }}>
-          <img src={imgDatabase} />
+          <img id="needs-help" src={IMGdatabase} alt="database" />
           <span>Database management</span>
         </div>
         <div className="skill-item" ref={ref => this.g = ref} style={{ opacity: 0 }}>
-          <img src={imgLinux} />
+          <img src={IMGlinux} alt="linux" />
           <span>Unix based systems</span>
         </div>
         <div className="skill-item" ref={ref => this.h = ref} style={{ opacity: 0 }}>
-          <img src={imgVscode} />
+          <img src={IMGvscode} alt="vscode" />
           <span>VS Code</span>
         </div>
       </div>
