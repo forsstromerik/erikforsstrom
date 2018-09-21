@@ -11,10 +11,8 @@ class ShortDescription extends Component {
       .from(text, 1, { y: 30, autoAlpha: 0 })
   }
 
-  componentDidUpdate(prevProps) {
-    if(this.props.loading === false && prevProps.loading === true){
-      this.setTimeline();
-    }
+  componentDidMount() {
+    this.setTimeline();
   }
 
   render() {

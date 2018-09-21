@@ -9,6 +9,7 @@ import ResumeButton from './Button/resumebutton';
 import ShortDescription from './shortdescription';
 import Skills from './Skills/skills';
 import Timeline from './Timeline/timeline';
+import Loader from './loader';
 
 import { parser } from '../helpers/parser';
 
@@ -58,44 +59,47 @@ class Main extends Component {
     const { data, loading, language } = this.state;
     return (
       <div>
-        <div className="header">
+        {loading && <Loader />}
+        {!loading && [
+        <div key={0} className="header">
           <img src={data.headerImageURL} alt="header" />
-        </div>
+        </div>,
         <Menu  
+          key={1}
           setLanguage={this.setLanguage}
           language={language}
-        />
+        />,
         <Card 
+          key={2}
           cardInfo={data.cardInfo} 
-          loading={loading}  
+          //loading={loading}  
           language={language}
-        />
-        {!loading && [
+        />,
         <ResumeButton 
-          key={0}
+          key={3}
           language={language} 
           url={data.resumeURL} 
         />,
         <ShortDescription 
-          key={1}
+          key={4}
           text={data.shortDescription} 
-          loading={loading}
+          //loading={loading}
         />,
         <Skills 
-          key={2}
+          key={5}
           language={language}
         />,
         <Timeline 
-          key={3}
+          key={6}
           language={language}
           elements={data.elements}
         />,
         <Contact 
-          key={4}
+          key={7}
           language={language}
         />,
         <Footer 
-          key={5}
+          key={8}
           quote={data.footer.quote}
           info={data.footer.info}
         />

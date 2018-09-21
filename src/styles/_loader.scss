@@ -1,8 +1,9 @@
 .loader-container {
-  top: 250px;
+  top: 38vh;
   position: relative;
   display: flex;
   justify-content: center;
+  width: 100%;
 
   .loader {
     display: inline-block;
@@ -62,3 +63,116 @@
     transform: translate(19px, 0);
   }
 }
+
+.loader-new {
+  top: 38vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .loader {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    
+    div:nth-child(1) {
+      position: absolute;
+      margin: 15px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #e8676b;
+      //animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      animation: loading 1.5s infinite sine;
+      z-index: 3;
+    }
+  }
+}
+//     div:nth-child(2) {
+//       position: absolute;
+//       width: 64px;
+//       height: 64px;
+//       border-radius: 50%;
+//       background: #e8676b;
+//       //animation-timing-function: cubic-bezier(0, 1, 1, 0);
+//       //animation-timing-function: ease-out;
+//       animation: wave 1.5s infinite ease-in-out;
+//       z-index: 1;
+//     }
+//     div:nth-child(3) {
+//       visibility: hidden;
+//       position: absolute;
+//       width: 40px;
+//       height: 40px;
+//       margin: 12px;
+//       border-radius: 50%;
+//       background: #eee;
+//       //animation-timing-function: cubic-bezier(0, 1, 1, 0);
+//       //animation-timing-function: ease-out;
+//       animation: wave2 1.5s infinite;
+//       z-index: 2;
+//     }
+//   }
+// }
+
+@keyframes loading {
+  0% {
+    transform: scale(1.1, 0.9) translateY(-10px); 
+  }
+  50% {
+    transform: scale(0.9, 1.1) translateY(10px); 
+  }
+  100% {
+    transform: scale(1.1, 0.9) translateY(-10px); 
+  }
+}
+  
+// @keyframes loading {
+//   0% {
+//     transform: scale(0);
+//   }
+//   50% {
+//     transform: scale(1);
+//   }  
+//   95% {
+//     background: rgba(50, 50, 50, 0);
+//   }
+//   100% {
+//     background: rgba(50, 50, 50, 0);
+//     transform: scale(0.5);
+//   }
+// }
+
+// @keyframes wave {
+//   0% {
+//     opacity: 0;
+//     transform: scale(0);
+//   }
+//   50% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+//   100% {
+//     background: #e8676b00;
+//     transform: scale(2);
+//   }
+// }
+
+// @keyframes wave2 {
+//   0% {
+//     opacity: 0;
+//     transform: scale(0);
+//   }
+//   25% {
+//     opacity: 0;
+//     transform: scale(0.7);
+//   }  
+//   45% {
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }

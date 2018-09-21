@@ -15,10 +15,8 @@ class Card extends Component {
       .from(card, 1, { y: 30, autoAlpha: 0 })
   }
 
-  componentDidUpdate(prevProps) {
-    if(this.props.loading === false && prevProps.loading === true){
-      this.setTimeline();
-    }
+  componentDidMount() {
+    this.setTimeline();
   }
 
   render() {
@@ -41,14 +39,7 @@ class Card extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="card" ref={ref => this.card = ref}>
-          <div className="upper">
-          <div className="loader-container" style={{top: '0'}}><div className="loader"><div></div><div></div><div></div><div></div></div></div>
-          </div>
-          <SocialButtons />
-        </div>
-      );
+      return null;
     }
   }
 }

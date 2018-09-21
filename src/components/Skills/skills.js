@@ -29,30 +29,30 @@ class Skills extends Component {
   }
 
   checkIfInView = () => {
-    const limit = document.documentElement.clientHeight + 150;
-    const aPos = this.a.getBoundingClientRect().top + this.a.getBoundingClientRect().height;
-    const bPos = this.b.getBoundingClientRect().top + this.b.getBoundingClientRect().height;
-    const cPos = this.c.getBoundingClientRect().top + this.c.getBoundingClientRect().height;
-    const dPos = this.d.getBoundingClientRect().top + this.d.getBoundingClientRect().height;
-    const ePos = this.e.getBoundingClientRect().top + this.e.getBoundingClientRect().height;
-    const fPos = this.f.getBoundingClientRect().top + this.f.getBoundingClientRect().height;
-    const gPos = this.g.getBoundingClientRect().top + this.g.getBoundingClientRect().height;
-    const hPos = this.h.getBoundingClientRect().top + this.h.getBoundingClientRect().height;
+    const limit = document.documentElement.clientHeight;
+    const aPos = this.a.getBoundingClientRect().top + this.a.getBoundingClientRect().height/4;
+    const bPos = this.b.getBoundingClientRect().top + this.b.getBoundingClientRect().height/4;
+    const cPos = this.c.getBoundingClientRect().top + this.c.getBoundingClientRect().height/4;
+    const dPos = this.d.getBoundingClientRect().top + this.d.getBoundingClientRect().height/4;
+    const ePos = this.e.getBoundingClientRect().top + this.e.getBoundingClientRect().height/4;
+    const fPos = this.f.getBoundingClientRect().top + this.f.getBoundingClientRect().height/4;
+    const gPos = this.g.getBoundingClientRect().top + this.g.getBoundingClientRect().height/4;
+    const hPos = this.h.getBoundingClientRect().top + this.h.getBoundingClientRect().height/4;
 
     if(aPos < limit && this.a.style.opacity === '0'){
       this.animate(this.a, 'left', A);
     }
     if(bPos < limit && this.b.style.opacity === '0'){
-      this.animate(this.b, 'top', B);
+      this.animate(this.b, 'right', B);
     } 
     if(cPos < limit && this.c.style.opacity === '0'){
-      this.animate(this.c, 'right', C);
+      this.animate(this.c, 'left', C);
     }  
     if(dPos < limit && this.d.style.opacity === '0'){
-      this.animate(this.d, 'left', D);
+      this.animate(this.d, 'right', D);
     } 
     if(ePos < limit && this.e.style.opacity === '0'){
-      this.animate(this.e, 'top', E);
+      this.animate(this.e, 'left', E);
     } 
     if(fPos < limit && this.f.style.opacity === '0'){
       this.animate(this.f, 'right', F);
@@ -61,7 +61,7 @@ class Skills extends Component {
       this.animate(this.g, 'left', G);
     } 
     if(hPos < limit && this.h.style.opacity === '0'){
-      this.animate(this.h, 'top', H);
+      this.animate(this.h, 'right', H);
     }
   }
 
