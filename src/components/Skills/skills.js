@@ -30,14 +30,14 @@ class Skills extends Component {
 
   checkIfInView = () => {
     const limit = document.documentElement.clientHeight;
-    const aPos = this.a.getBoundingClientRect().top + this.a.getBoundingClientRect().height/4;
-    const bPos = this.b.getBoundingClientRect().top + this.b.getBoundingClientRect().height/4;
-    const cPos = this.c.getBoundingClientRect().top + this.c.getBoundingClientRect().height/4;
-    const dPos = this.d.getBoundingClientRect().top + this.d.getBoundingClientRect().height/4;
-    const ePos = this.e.getBoundingClientRect().top + this.e.getBoundingClientRect().height/4;
-    const fPos = this.f.getBoundingClientRect().top + this.f.getBoundingClientRect().height/4;
-    const gPos = this.g.getBoundingClientRect().top + this.g.getBoundingClientRect().height/4;
-    const hPos = this.h.getBoundingClientRect().top + this.h.getBoundingClientRect().height/4;
+    const aPos = this.a.getBoundingClientRect().top;
+    const bPos = this.b.getBoundingClientRect().top;
+    const cPos = this.c.getBoundingClientRect().top;
+    const dPos = this.d.getBoundingClientRect().top;
+    const ePos = this.e.getBoundingClientRect().top;
+    const fPos = this.f.getBoundingClientRect().top;
+    const gPos = this.g.getBoundingClientRect().top;
+    const hPos = this.h.getBoundingClientRect().top;
 
     if(aPos < limit && this.a.style.opacity === '0'){
       this.animate(this.a, 'left', A);
