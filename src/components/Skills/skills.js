@@ -21,6 +21,7 @@ let H = new TimelineMax();
 class Skills extends Component {
 
   componentDidMount() {
+    this.checkIfInView();
     document.addEventListener('scroll', this.checkIfInView);
   }
 
