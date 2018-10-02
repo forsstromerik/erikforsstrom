@@ -8,7 +8,7 @@ import IMGdatabase from '../../images/if_database.svg';
 import IMGlinux from '../../images/if_linux.svg';
 import IMGvscode from '../../images/if_vscode.svg';
 import { TimelineMax, Power1 } from 'gsap';
-import { LANGUAGES } from '../../helpers/localization';
+import { translate } from '../../helpers/localization';
 
 let A = new TimelineMax();
 let B = new TimelineMax();
@@ -102,7 +102,7 @@ class Skills extends Component {
   render() {
     const { language } = this.props;
     return [
-      <h2 key={0} id="skills">{language === LANGUAGES.ENGLISH.key ? "Skills" : "Kompetens"}</h2>,
+      <h2 key={0} id="skills">{translate(language, 'skills')}</h2>,
       <div key={1} className="skills">
         <div className="skill-item" ref={ref => this.a = ref} style={{ opacity: 0 }}>
           <img src={IMGjavascript} alt="javascript" />

@@ -23,12 +23,24 @@ const translations = {
     about: 'Om',
     skills: 'Kompetens',
     timeline: 'Tidslinje',
-    contact: 'Kontakt'
+    contact: 'Kontakt',
+    downloadResume: 'Ladda ned CV',
+    name: 'Namn',
+    age: 'Ålder',
+    email: 'Email',
+    occupation: 'Sysselsättning',
+    other: 'Annat'
   },
   eng: {
     about: 'About',
     skills: 'Skills',
     timeline: 'Timeline',
-    contact: 'Contact'
+    contact: 'Contact',
+    downloadResume: 'Download résumé',
+    name: 'Name',
+    age: 'Age',
+    email: 'Email',
+    occupation: 'Occupaction',
+    other: 'Other'
   }
 };

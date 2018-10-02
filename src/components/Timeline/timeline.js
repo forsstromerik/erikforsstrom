@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LANGUAGES } from '../../helpers/localization';
+import { translate } from '../../helpers/localization';
 
 class Timeline extends Component {
 
@@ -52,7 +52,7 @@ class Timeline extends Component {
     const { language } = this.props;
     let elements = this.renderTimeline();
     return [
-      <h2 key={0} id="timeline">{language === LANGUAGES.ENGLISH.key ? "Timeline" : "Tidslinje"}</h2>,
+      <h2 key={0} id="timeline">{translate(language, 'timeline')}</h2>,
       <div key={1} className="timeline-holder">
         <div className="timeline" ref={ref => this.timeline = ref}>
           {elements}

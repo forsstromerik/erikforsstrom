@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { TimelineMax } from 'gsap';
-import { LANGUAGES } from '../../helpers/localization';
+import { translate } from '../../helpers/localization';
 
 class ResumeButton extends Component {
-  state = {
-
-  }
-
   componentDidMount() {
     let tl = new TimelineMax();
     const button = this.button;
@@ -26,7 +22,7 @@ class ResumeButton extends Component {
         ref={ref => this.button = ref}
       >
         <button>
-          <span>{language === LANGUAGES.ENGLISH.key ? "Download résumé" : "Ladda ned CV"}</span>
+          <span>{translate(language, 'downloadResume')}</span>
         </button>
       </a>
     );
