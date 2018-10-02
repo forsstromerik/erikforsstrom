@@ -12,6 +12,7 @@ import Timeline from './Timeline/timeline';
 import Loader from './loader';
 
 import { parser } from '../helpers/parser';
+import { LANGUAGES } from '../helpers/localization';
 
 class Main extends Component {
   state = {
@@ -38,14 +39,14 @@ class Main extends Component {
       }
     },
     loading: true,
-    language: 'eng'
+    language: LANGUAGES.ENGLISH.key
   }
 
   setLanguage = string => {
-    let data;   
-    this.state.client.getEntries({ locale: string === "eng" ? "en-US" : "sv"}).then(res => {
+    let data;
+    this.state.client.getEntries({ locale: string === LANGUAGES.ENGLISH.key ? LANGUAGES.ENGLISH.locale : LANGUAGES.SWEDISH.locale }).then(res => {
       data = parser(res)
-    }).then(() => this.setState({ data, loading: false, language: string === "eng" ? "eng" : "swe" }));
+    }).then(() => this.setState({ data, loading: false, language: string === LANGUAGES.ENGLISH.key ? LANGUAGES.ENGLISH.key : LANGUAGES.SWEDISH.key }));
   }
 
   componentDidMount() {
@@ -54,7 +55,7 @@ class Main extends Component {
       data = parser(res);
     }).then(() => this.setState({ data, loading: false }));
   }
-  
+
   render(){
     const { data, loading, language } = this.state;
     return (
@@ -64,41 +65,41 @@ class Main extends Component {
         <div key={0} className="header">
           <img src={data.headerImageURL} alt="header" />
         </div>,
-        <Menu  
+        <Menu
           key={1}
           setLanguage={this.setLanguage}
           language={language}
         />,
-        <Card 
+        <Card
           key={2}
-          cardInfo={data.cardInfo} 
-          //loading={loading}  
+          cardInfo={data.cardInfo}
+          //loading={loading}
           language={language}
         />,
-        <ResumeButton 
+        <ResumeButton
           key={3}
-          language={language} 
-          url={data.resumeURL} 
+          language={language}
+          url={data.resumeURL}
         />,
-        <ShortDescription 
+        <ShortDescription
           key={4}
-          text={data.shortDescription} 
+          text={data.shortDescription}
           //loading={loading}
         />,
-        <Skills 
+        <Skills
           key={5}
           language={language}
         />,
-        <Timeline 
+        <Timeline
           key={6}
           language={language}
           elements={data.elements}
         />,
-        <Contact 
+        <Contact
           key={7}
           language={language}
         />,
-        <Footer 
+        <Footer
           key={8}
           quote={data.footer.quote}
           info={data.footer.info}

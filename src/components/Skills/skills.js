@@ -8,6 +8,7 @@ import IMGdatabase from '../../images/if_database.svg';
 import IMGlinux from '../../images/if_linux.svg';
 import IMGvscode from '../../images/if_vscode.svg';
 import { TimelineMax, Power1 } from 'gsap';
+import { LANGUAGES } from '../../helpers/localization';
 
 let A = new TimelineMax();
 let B = new TimelineMax();
@@ -45,22 +46,22 @@ class Skills extends Component {
     }
     if(bPos < limit && this.b.style.opacity === '0'){
       this.animate(this.b, 'right', B);
-    } 
+    }
     if(cPos < limit && this.c.style.opacity === '0'){
       this.animate(this.c, 'left', C);
-    }  
+    }
     if(dPos < limit && this.d.style.opacity === '0'){
       this.animate(this.d, 'right', D);
-    } 
+    }
     if(ePos < limit && this.e.style.opacity === '0'){
       this.animate(this.e, 'left', E);
-    } 
+    }
     if(fPos < limit && this.f.style.opacity === '0'){
       this.animate(this.f, 'right', F);
     }
     if(gPos < limit && this.g.style.opacity === '0'){
       this.animate(this.g, 'left', G);
-    } 
+    }
     if(hPos < limit && this.h.style.opacity === '0'){
       this.animate(this.h, 'right', H);
     }
@@ -91,17 +92,17 @@ class Skills extends Component {
   setTimeline = (obj, x, y, timeLine, reverse = false) => {
     if(!reverse){
       timeLine
-        .set(obj, { x: x, y: y }) 
+        .set(obj, { x: x, y: y })
         .to(obj, 0.7, { x: 0, y: 0, autoAlpha: 1, ease: Power1.easeOut })
     } else {
       timeLine.reverse();
     }
-  } 
-  
+  }
+
   render() {
     const { language } = this.props;
     return [
-      <h2 key={0} id="skills">{language === "eng" ? "Skills" : "Kompetens"}</h2>,      
+      <h2 key={0} id="skills">{language === LANGUAGES.ENGLISH.key ? "Skills" : "Kompetens"}</h2>,
       <div key={1} className="skills">
         <div className="skill-item" ref={ref => this.a = ref} style={{ opacity: 0 }}>
           <img src={IMGjavascript} alt="javascript" />

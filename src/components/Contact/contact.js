@@ -1,8 +1,9 @@
 import React from 'react';
+import { LANGUAGES } from '../../helpers/localization';
 
 const Contact = props => {
   return [
-    <h2 key={0} id="contact">{ props.language === "eng" ? "Contact" : "Kontakt"}</h2>,
+    <h2 key={0} id="contact">{ props.language === LANGUAGES.ENGLISH.key ? "Contact" : "Kontakt"}</h2>,
     <div className="contact" key={1}>
       <div className="contact-card">
         <span>Erik Forsström</span>

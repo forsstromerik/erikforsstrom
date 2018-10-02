@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { TimelineMax } from 'gsap';
-import swe from '../../images/sweden.svg';
-import eng from '../../images/united-kingdom.svg';
+import { LANGUAGES, translate } from '../../helpers/localization';
 
 class Menu extends Component {
   state = {
@@ -11,7 +10,7 @@ class Menu extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    
+
     this.timeline = new TimelineMax()
       .set(this.menu, { css: {transition: 'none'}})
       .from(this.menu, 0.8, { y: -100 })
@@ -52,43 +51,43 @@ class Menu extends Component {
     return [
       <div key={0} className={`menu${atTop ? "" : " scrolled-down"}`} ref={ref => this.menu = ref}>
         <ul>
-          <li 
-            className="menu-button" 
+          <li
+            className="menu-button"
             onClick={() => this.scrollTo('root')}
           >
-            {language === "eng" ? "About" : "Om"}
+            {translate(language, 'about')}
           </li>
-          <li 
-            className="menu-button" 
+          <li
+            className="menu-button"
             onClick={() => this.scrollTo('skills')}
           >
-            {language === "eng" ? "Skills" : "Kompetens"}
+            {translate(language, 'skills')}
           </li>
-          <li 
+          <li
             className="menu-button"
             onClick={() => this.scrollTo('timeline')}
           >
-            {language === "eng" ? "Timeline" : "Tidslinje"}
+            {translate(language, 'timeline')}
           </li>
-          <li 
+          <li
             className="menu-button"
             onClick={() => this.scrollTo('contact')}
           >
-            {language === "eng" ? "Contact" : "Kontakt"}            
+            {translate(language, 'contact')}
           </li>
         </ul>
         <ul>
-          <li onClick={() => this.props.setLanguage('swe')}>
-            <img 
-              src={swe}
-              className={language === "swe" ? "active" : ""}
+        <li onClick={() => this.props.setLanguage(LANGUAGES.SWEDISH.key)}>
+            <img
+              src={LANGUAGES.SWEDISH.image}
+              className={language === LANGUAGES.SWEDISH.key ? "active" : ""}
               alt="swedish"
             />
           </li>
-          <li onClick={() => this.props.setLanguage('eng')}>
-            <img 
-              src={eng}
-              className={language === "eng" ? "active" : ""}
+          <li onClick={() => this.props.setLanguage(LANGUAGES.ENGLISH.key)}>
+            <img
+              src={LANGUAGES.ENGLISH.image}
+              className={language === LANGUAGES.ENGLISH.key ? "active" : ""}
               alt="english"
             />
           </li>
@@ -99,43 +98,43 @@ class Menu extends Component {
       </div>,
       <div key={2} className={`burger-menu${burgerOpen ? " open" : ""}`}>
         <ul>
-          <li 
-            className="menu-button" 
+          <li
+            className="menu-button"
             onClick={() => {this.scrollTo('root'); this.toggleBurger(true);}}
           >
-            {language === "eng" ? "About" : "Om"}
+            {translate(language, 'about')}
           </li>
-          <li 
-            className="menu-button" 
+          <li
+            className="menu-button"
             onClick={() => {this.scrollTo('skills'); this.toggleBurger(true);}}
           >
-            {language === "eng" ? "Skills" : "Kompetens"}
+            {translate(language, 'skills')}
           </li>
-          <li 
+          <li
             className="menu-button"
             onClick={() => {this.scrollTo('timeline'); this.toggleBurger(true);}}
           >
-            {language === "eng" ? "Timeline" : "Tidslinje"}
+            {translate(language, 'timeline')}
           </li>
-          <li 
+          <li
             className="menu-button"
             onClick={() => {this.scrollTo('contact'); this.toggleBurger(true);}}
           >
-            {language === "eng" ? "Contact" : "Kontakt"}            
+            {translate(language, 'contact')}
           </li>
         </ul>
         <ul>
-          <li onClick={() => this.props.setLanguage('swe')}>
-            <img 
-              src={swe}
-              className={language === "swe" ? "active" : ""}
+        <li onClick={() => this.props.setLanguage(LANGUAGES.SWEDISH.key)}>
+            <img
+              src={LANGUAGES.SWEDISH.image}
+              className={language === LANGUAGES.SWEDISH.key ? "active" : ""}
               alt="swedish"
             />
           </li>
-          <li onClick={() => this.props.setLanguage('eng')}>
-            <img 
-              src={eng}
-              className={language === "eng" ? "active" : ""}
+          <li onClick={() => this.props.setLanguage(LANGUAGES.ENGLISH.key)}>
+            <img
+              src={LANGUAGES.ENGLISH.image}
+              className={language === LANGUAGES.ENGLISH.key ? "active" : ""}
               alt="english"
             />
           </li>
