@@ -122,15 +122,15 @@ class Skills extends Component {
         </div>
         <div className="skill-item" ref={ref => this.e = ref} style={{ opacity: 0 }}>
           <img src={IMGgithub} alt="github" />
-          <span>Version Control</span>
+          <span>{translate(language, 'version_control')}</span>
         </div>
         <div className="skill-item" ref={ref => this.f = ref} style={{ opacity: 0 }}>
           <img id="needs-help" src={IMGdatabase} alt="database" />
-          <span>Database management</span>
+          <span>{translate(language, 'db_management')}</span>
         </div>
         <div className="skill-item" ref={ref => this.g = ref} style={{ opacity: 0 }}>
           <img src={IMGlinux} alt="linux" />
-          <span>Unix based systems</span>
+          <span>{translate(language, 'unix_based_systems')}</span>
         </div>
         <div className="skill-item" ref={ref => this.h = ref} style={{ opacity: 0 }}>
           <img src={IMGvscode} alt="vscode" />

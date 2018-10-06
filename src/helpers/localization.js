@@ -29,7 +29,10 @@ const translations = {
     age: 'Ålder',
     email: 'Email',
     occupation: 'Sysselsättning',
-    other: 'Annat'
+    other: 'Annat',
+    version_control: 'Versionshantering',
+    db_management: 'Databashantering',
+    unix_based_systems: 'Unixbaserade system'
   },
   eng: {
     about: 'About',
@@ -41,6 +44,9 @@ const translations = {
     age: 'Age',
     email: 'Email',
     occupation: 'Occupaction',
-    other: 'Other'
+    other: 'Other',
+    version_control: 'Version control',
+    db_management: 'Database management',
+    unix_based_systems: 'Unix based systems'
   }
 };
